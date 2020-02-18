@@ -82,13 +82,9 @@ function addSizesToElement(element, sizes){
 
 // Accept an array of sizes and subtract it from a given element
 function subtractSizesFromElement(element, sizes){
-    window.console.log(element);
     var classString = element.className;
-    window.console.log(classString);
     var currentSizes = getElementSizes(element);
     classString = stripColumns(classString);
-    window.console.log(currentSizes);
-    window.console.log(sizes);
     for(i in sizes){
         currentSizes[i] -= sizes[i];
         classString += (' col-' + i + '-' + currentSizes[i]); 
@@ -111,7 +107,6 @@ function unabsorbElement(elementShrink,elementGrow){
     $(elementGrow).attr('previous-cols','');
     $(elementGrow).addClass(previousCols);
     
-    window.console.log($(elementGrow).attr('class'));
     const subSizes = getElementSizes(elementGrow);
     subtractSizesFromElement(elementShrink,subSizes);
     
